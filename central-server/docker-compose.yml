@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  backup-central:
+    build: .
+    ports:
+      - "8000:8000"  # Interface web
+      - "9200:9200"  # API para agentes
+    volumes:
+      - ./app:/app/app
+      - ./data:/app/data
+    environment:
+      - DATABASE_URL=sqlite:////app/data/backup_central.db
+      - SECRET_KEY=dev_secret_key_change_me_in_production
+      - HOST_IP=0.0.0.0
+    restart: unless-stopped
+    networks:
+      - backup-net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  backup-net:
+    driver: bridge

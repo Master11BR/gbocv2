@@ -1,0 +1,69 @@
+# ============ Framework Web ============
+fastapi
+uvicorn[standard]
+python-multipart
+
+# ============ Database ============
+sqlalchemy
+alembic
+psycopg2-binary
+asyncpg
+
+# ============ Security ============
+python-jose[cryptography]
+passlib[bcrypt]
+cryptography
+
+# ============ Settings & Config ============
+pydantic
+pydantic-settings
+python-dotenv
+
+# ============ HTTP & Requests ============
+requests
+httpx
+aiofiles
+
+# ============ Rate Limiting ============
+slowapi
+
+# ============ Caching ============
+redis
+hiredis
+
+# ============ Scheduler ============
+APScheduler
+pytz
+
+# ============ Templates ============
+jinja2
+
+# ============ Logging & Monitoring ============
+python-json-logger
+sentry-sdk[fastapi]
+
+# ============ Data Processing ============
+pandas
+openpyxl
+
+# ============ Utils ============
+python-dateutil
+click
+tabulate
+
+# ============ Development Tools (comentar em produção) ============
+ pytest
+ pytest-asyncio
+ pytest-cov
+ httpx
+ faker
+ black
+ flake8
+ mypy
+ isort
+ bandit
+ safety
+
+# ============ Documentation ============
+ mkdocs
+ mkdocs-material

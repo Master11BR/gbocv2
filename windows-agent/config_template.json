@@ -1,0 +1,47 @@
+{
+  "server_url": "http://localhost:9200/api/agents",
+  "agent_id": null,
+  "web_port": 8080,
+  "data_dir": "C:\\ProgramData\\BackupAgent",
+  "backup_jobs": [
+    {
+      "id": 1,
+      "name": "Backup de Documentos",
+      "source": "C:\\Users\\Documents",
+      "repository_id": 1,
+      "tool": "kopia",
+      "schedule": "0 2 * * *",
+      "enabled": true
+    }
+  ],
+  "repositories": [
+    {
+      "id": 1,
+      "name": "Repo_Local",
+      "type": "filesystem",
+      "path": "C:\\BackupRepo\\Local",
+      "password": "strong_password_here",
+      "retention": {
+        "daily": 7,
+        "weekly": 4,
+        "monthly": 12
+      }
+    }
+  ],
+  "logging": {
+    "level": "INFO",
+    "file": "C:\\ProgramData\\BackupAgent\\logs\\agent.log",
+    "max_size_mb": 10,
+    "backup_count": 5
+  },
+  "security": {
+    "web_local_only": true,
+    "require_auth": false,
+    "admin_password": "",
+    "allowed_ips": ["127.0.0.1", "::1"]
+  },
+  "binaries": {
+    "kopia": "",
+    "restic": ""
+  }
+}
